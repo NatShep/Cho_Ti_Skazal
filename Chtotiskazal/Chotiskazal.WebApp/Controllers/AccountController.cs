@@ -14,15 +14,10 @@ namespace Chotiskazal.WebApp.Controllers
     {
         private UserService _userService;
 
-        public AccountController(UserService userService)
-            => _userService = userService;
-        
+        public AccountController(UserService userService) => _userService = userService;
         
         [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
         
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -42,10 +37,7 @@ namespace Chotiskazal.WebApp.Controllers
         }
         
         [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
+        public IActionResult Register() => View();
         
         [HttpPost]
         [ValidateAntiForgeryToken]

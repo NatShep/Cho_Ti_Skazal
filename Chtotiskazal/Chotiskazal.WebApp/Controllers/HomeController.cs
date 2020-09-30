@@ -14,27 +14,15 @@ namespace Chotiskazal.WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-        
-        
-        [Authorize]
-        public IActionResult Menu()
-        {
-            return View();
-        }
+        public HomeController(ILogger<HomeController> logger) => _logger = logger;
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        [Authorize]
+        public IActionResult Menu() => View();
+
+        public IActionResult Privacy() => View();
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
-        }
+        public IActionResult Error() =>
+            View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
     }
 }

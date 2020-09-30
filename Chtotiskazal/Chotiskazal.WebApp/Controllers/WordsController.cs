@@ -91,7 +91,6 @@ namespace Chotiskazal.WebApp.Controllers
                 _usersWordService.AddWordToUserCollection(user, id);
          
             return RedirectToAction("Menu", "Home");
-
         }
         
         private List<TranslationAndContext> FindInDictionary(string word)
