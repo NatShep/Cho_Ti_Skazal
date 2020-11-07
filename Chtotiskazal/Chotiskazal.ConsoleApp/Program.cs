@@ -122,9 +122,10 @@ namespace Chotiskazal.ConsoleApp
                 }
                 Console.ReadKey();
             }
+
             Console.Clear();
-            
             //---------end registration-------
+            
             
             while (true)
             {

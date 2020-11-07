@@ -2,16 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Chotiskazal.Dal.Repo;
 using Chotiskazal.Dal.Services;
 using Chotiskazal.LogicR.yapi;
 using System.Timers;
-using Chotiskazal.ConsoleTesting;
 using Chotiskazal.DAL;
 using Chotiskazal.Dal.Enums;
-using Chotiskazal.DAL.ModelsForApi;
+using Chotiskazal.DAL.Services;
 using Chotiskazal.LogicR;
-using Chotiskazal.WebApp.Models;
 
 
 namespace Chotiskazal.Api.Services
@@ -41,7 +38,7 @@ namespace Chotiskazal.Api.Services
 
             foreach (var word in allWordsForLearning)
             {
-                var phrases = word.GetPhrasesId;
+                var phrases = word.GetPhrasesId();
                 allPhrasesIdForUser.AddRange(phrases);
             }
 
@@ -127,6 +124,8 @@ namespace Chotiskazal.Api.Services
 
         public List<UserWordForLearning> TranslateAndAddToDictionary(string word)
         {
+            word = word.ToLower();
+            
             List<UserWordForLearning> WordsForLearning = new List<UserWordForLearning>();
             List<int> phrasesId = new List<int>();
             if (!word.Contains(' '))
@@ -207,6 +206,8 @@ namespace Chotiskazal.Api.Services
 
         public List<UserWordForLearning> FindInDictionaryWithPhrases(string word)
         {
+            word = word.ToLower();
+            
             var pairWords = _dictionaryService.GetAllPairsByWordWithPhrases(word);
           
             var translateWithContexts = new List<UserWordForLearning>();
